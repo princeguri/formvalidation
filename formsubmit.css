@@ -1,0 +1,9 @@
+label{display:inline-block;
+    width:100px;
+    padding:2px; }
+
+body{background-color:aqua;}
+
+input{border:1px dashed black;
+    background-color:#6a17de;
+    color:aliceblue;}

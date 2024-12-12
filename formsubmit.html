@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="formsubmit.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formsubmit</title>
+</head>
+<style>
+            /* label{display:inline-block;
+				width:100px;
+				padding:2px; }
+			
+			body{background-color:aqua;}
+			
+			input{border:1px dashed black;
+				background-color:#6a17de;
+				color:aliceblue;} */
+
+</style>
+
+<body>
+    <form action="submit.html" id="formId">
+        <fieldset>
+            <legend>personal informatin</legend>
+            <label for="fname">first name</label><input id="fname" name="fname" type="text"/><div id="massage1" style="color: red;"></div><br><br>
+            <label for="lname">last name</label><input id="lname" name="lname" type="text"/><div id="massage2" style="color: red;"></div><br><br>
+            <label for="password">passward</label><input id="passward" name="pasward" type="password"><br><br>
+            <label for="conformpaswd">conform passward</label><input id="conformpaswd" name="pasward" type="password"><br><br>
+            <label for="mobile">mobile</label><input id="mobile" name="mob" minlength="10" maxlength="10" type="text"><div id="massage3" style="color: red;"></div><br><br>
+            <button type="submit" id="button">Submit</button>
+        </fieldset>
+    </form>
+    <script>
+        // document.getElementById('formId').addEventListener('submit',function(event) {
+        //                     alert('hlo')
+        //                     event.preventDefault();
+        //     const fname=document.getElementById('fname').value
+        //     console.log(fname);
+            
+        //     document.getElementById('massage')
+        //     console.log(fname);
+        //     let pattern=/^[A-Za-z\s]+$/
+        //     if (!pattern.test(fname)){
+        //         massage.textContent=('enter only charater') 
+        //         event.preventDefault();
+        //     }
+
+
+            
+        // })
+        document.getElementById('formId').addEventListener('submit',function(e) {
+            // alert('helo');
+            // e.preventDefault();
+            const fname = document.getElementById('fname').value;
+            const lname = document.getElementById('lname').value;
+            const passward = document.getElementById('passward').value;
+            const conformpaswd = document.getElementById('conformpaswd').value;
+            const mobile = document.getElementById('mobile').value;
+            const div1=document.getElementById('massage1')
+            const div2=document.getElementById('massage2')
+            const div3=document.getElementById('massage3')
+            const pattern=/^[A-Za-z/s]+$/
+            const mobpattern=/^[0-9]+$/
+            if(fname == ''){
+                alert('Please enter first name')
+                e.preventDefault();
+            }else if(!pattern.test(fname)){
+                div1.textContent='allow only chracter';
+                e.preventDefault()
+            }else if(lname==""){
+                alert('Please enter last name')
+                e.preventDefault();
+            }else if(!pattern.test(lname)){
+                div2.textContent='allow only charatcter'
+                e.preventDefault();
+            }else if(passward==""){
+                alert('Please enter passward')
+                e.preventDefault();
+            }else if(conformpaswd==""){
+                alert('Please enter conform passward')
+                e.preventDefault();
+            }else if(mobile==""){
+                alert('Please enter your mobile')
+                e.preventDefault();
+            }else if(passward != conformpaswd){
+                alert('Passward does not match')
+                e.preventDefault();
+            }else if(!mobpattern.test(mobile)){
+                div3.textContent='enter only number'
+                e.preventDefault();
+            }  
+                   
+                     
+        })
+        
+                    
+
+    </script>
+</body>
+
+</html>
